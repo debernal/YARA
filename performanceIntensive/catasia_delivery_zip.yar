@@ -24,5 +24,6 @@ rule Catasia_delivery_zipfile
         // second zip file contains a filename that includes ".exe".
         $ext_exe in (@local_file[2]+30..@local_file[2]+30+uint16(@local_file[2]+26)) and
 
-        $re1
+        // second zip file contains a filename that includes the date in dd-mm-yyyy format
+        $re1 in (@local_file[2]+30..@local_file[2]+30+uint16(@local_file[2]+26))
 }
