@@ -22,7 +22,7 @@ rule Catasia_delivery_zipfile
         filesize > 100KB and filesize < 600KB and
 
         // second zip file contains a filename that includes ".exe".
-        $ext_exe in (@local_file[2]+30..@local_file[2]+30+uint16(@local_file[2]+26)) and
+        $ext_exe in (@zip_file[2]+31..@zip_file[2]+100) and
 
         $re1
 }
