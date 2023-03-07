@@ -9,7 +9,6 @@ rule Catasia_delivery_zipfile
     strings:
         $zip_file = { 50 4b 03 04 }
         $ext_exe = ".exe" nocase
-        $re1 = /(0?[1-9]|[12][0-9]|3[01])-(0?[1-9]|1[012])-\d{4}/
 
     condition:
         // look for the ZIP header
@@ -22,7 +21,5 @@ rule Catasia_delivery_zipfile
         filesize > 100KB and filesize < 600KB and
 
         // second zip file contains a filename that includes ".exe".
-        $ext_exe in (@zip_file[2]+31..@zip_file[2]+100) and
-
-        $re1
+        $ext_exe in (@zip_file[2]+31..@zip_file[2]+100)
 }
