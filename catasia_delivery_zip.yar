@@ -7,7 +7,7 @@ rule Catasia_delivery_zipfile
         hash1 = "12c08fcfb8610b2e90d9497d8197828b6ac25bde"
 
     strings:
-        $local_file = { 50 4b 03 04 }
+        $zip_file = { 50 4b 03 04 }
         $ext_exe = ".exe" nocase
         $re1 = /(0?[1-9]|[12][0-9]|3[01])-(0?[1-9]|1[012])-\d{4}/
 
