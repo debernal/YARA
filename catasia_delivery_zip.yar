@@ -15,7 +15,7 @@ rule Catasia_delivery_zipfile
         uint32(0) == 0x04034b50 and
 
         // contains exactly two zip files
-        #local_file == 2 and
+        #zip_file == 2 and
 
         //file size
         filesize > 100KB and filesize < 600KB and
