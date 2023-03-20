@@ -19,11 +19,10 @@ rule regsvrExecution : Delivery regsvr32
 		$run2 = "ActiveXObject('WScript.Shell').Run(" nocase
 		
 		condition:
-
 			filesize < 100KB and
 
-			// <?XML file header
-			uint32be(0) == 0x3C3F584D and uint8(4) == 0x4C and	
+			// <?XML, <?xml file header
+			(uint32be(0) == 0x3C3F584D and uint8(4) == 0x4C) or (uint32be(0) == 0x3C3F786D and uint8(4)== 0x6C) and 	
 			
 			all of ($s*) and 1 of ($run*)
 }
