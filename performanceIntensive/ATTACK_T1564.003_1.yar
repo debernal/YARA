@@ -7,5 +7,6 @@ rule PowershellHiddenWindowParameters
                 $powershell = "powershell" nocase
                 $re = /(\/|\-)(w|wi|win|wind|windo|window|windows|windowst|windowsty|windowstyle)\s+(1|h|hi|hid|hidd|hidde|hidden)\s/ nocase
         condition:
+				filesize < 2MB and
                 all of them
 }
